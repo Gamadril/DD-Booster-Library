@@ -103,8 +103,8 @@ Public Types</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a65312455e07eaf4ee26fe327da52846a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_d_booster.html#a65312455e07eaf4ee26fe327da52846a">DDBooster</a> ()</td></tr>
 <tr class="separator:a65312455e07eaf4ee26fe327da52846a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaadb12a510f110a8a1de6e771eeaefd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_d_booster.html#aaadb12a510f110a8a1de6e771eeaefd8">configurePins</a> (uint8_t csPin, uint8_t resetPin)</td></tr>
-<tr class="separator:aaadb12a510f110a8a1de6e771eeaefd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a491a83ea7567aca7c58a7d232a1d0605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_d_booster.html#a491a83ea7567aca7c58a7d232a1d0605">configurePins</a> (uint8_t csPin, uint8_t resetPin=0xFF)</td></tr>
+<tr class="separator:a491a83ea7567aca7c58a7d232a1d0605"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f2a39c82ecc146cdf2131ad4a9ca3c6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_d_booster.html#a2f2a39c82ecc146cdf2131ad4a9ca3c6">init</a> (uint16_t ledCount, <a class="el" href="class_d_d_booster.html#a4a7d97505b7ee23f793ec1b715193464">LedType</a> ledType=LED_RGB, <a class="el" href="class_d_d_booster.html#a016e1039bde8e169ed2933fcc9963ec9">LedColorOrder</a> colorOrder=ORDER_GRB)</td></tr>
 <tr class="separator:a2f2a39c82ecc146cdf2131ad4a9ca3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8b77055254eae66a29fe92a37f790933"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_d_d_booster.html#a8b77055254eae66a29fe92a37f790933">reset</a> ()</td></tr>
@@ -143,8 +143,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Class acts as a wrapper around SPI calls to control the Digi-Dot-Booster. </p>
 <p>After creation of the class instance SPI is configured with default values (12MHz, MSB first, mode 0). By default the library uses the SS pin of the Arduino platform for the communication with the Digi-Dot-Booster. If you prefer to use another digital pin for chip select use configurePins to set it. Using configurePins you can also set a reset pin used to toggle the hardware reset of the DD-Booster.</p>
-<p>Before calling any functions you have first to initialize the DD-Booster with the number of the LEDs (max. 256), their type (RGB or RGBW) and the color order (RGB or GRB). Both last parameters are optional - DD-Booster is configured for the ws2812 LEDS (RGB type with GRB color order).</p>
-<p>When calling the LED controlling functions the corresponding values are sent to the DD-Booster, but only after the <a class="el" href="class_d_d_booster.html#a441620b30968b2a5fff23fa55d7e1e16">show()</a> call the LEDs are really addressed with the current state of the values buffer. </p>
+<p>Before calling any functions you have first to initialize the DD-Booster by calling <a class="el" href="class_d_d_booster.html#a2f2a39c82ecc146cdf2131ad4a9ca3c6">init()</a> with the number of the LEDs (max. 256), their type (RGB or RGBW) and the color order (RGB or GRB). Both last parameters are optional - DD-Booster is configured for the ws2812 LEDS (RGB type with GRB color order).</p>
+<p>When calling the functions the corresponding values are sent to the DD-Booster, but only after the <a class="el" href="class_d_d_booster.html#a441620b30968b2a5fff23fa55d7e1e16">show()</a> call the LEDs are really addressed with the current state of the values buffer. </p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a016e1039bde8e169ed2933fcc9963ec9"></a>
 <div class="memitem">
@@ -228,7 +228,7 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaadb12a510f110a8a1de6e771eeaefd8"></a>
+<a class="anchor" id="a491a83ea7567aca7c58a7d232a1d0605"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -242,7 +242,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>resetPin</em>&#160;</td>
+          <td class="paramname"><em>resetPin</em> = <code>0xFF</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
