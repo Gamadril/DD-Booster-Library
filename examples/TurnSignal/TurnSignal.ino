@@ -39,5 +39,5 @@ void loop() {
   }
 
   // control the speed of the turn light
-  delay(10);
+  delay(20);
 }

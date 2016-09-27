@@ -38,5 +38,5 @@ void loop() {
   }
 
   // changing the value makes the drop fall faster or slower
-  delay(10);
+  delay(20);
 }
