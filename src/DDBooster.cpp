@@ -7,8 +7,8 @@
 
 #include "DDBooster.h"
 
-#define BOOSTER_CMD_DELAY    2
-#define BOOSTER_LED_DELAY    6
+#define BOOSTER_CMD_DELAY    500
+#define BOOSTER_LED_DELAY    30
 
 #define BOOSTER_SETRGB       0xA1
 #define BOOSTER_SETRGBW      0xA2
@@ -266,7 +266,7 @@ void DDBooster::show() {
     uint8_t cmd[1];
     cmd[0] = BOOSTER_SHOW;
     sendData(cmd, sizeof (cmd));
-    delay(BOOSTER_LED_DELAY);
+    delayMicroseconds(BOOSTER_LED_DELAY * (_lastIndex + 1));
 }
 
 void DDBooster::sendData(uint8_t *buffer, uint8_t length) {
@@ -275,5 +275,5 @@ void DDBooster::sendData(uint8_t *buffer, uint8_t length) {
         SPI.transfer(buffer[i]);
     }
     digitalWrite(_csPin, HIGH);
-    delay(BOOSTER_CMD_DELAY);
+    delayMicroseconds(BOOSTER_CMD_DELAY);
 }
