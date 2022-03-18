@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
     paths:
-    - 'src/DDBooster.h'
+    - '**.h'
     
   workflow_dispatch:
 
