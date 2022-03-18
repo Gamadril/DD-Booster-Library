@@ -1,0 +1,31 @@
+name: Doxygen-Publisher
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+    - 'src/DDBooster.h'
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Doxygen HTML generator and publisher
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get build container
+        uses: mattnotmitt/doxygen-action@v1.9.2
+        with:
+          doxyfile-path: ./doc/Doxyfile
+          working-directory: ./
+
+      - name: Deploy docs to ghpages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./doc/html
