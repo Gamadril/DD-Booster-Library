@@ -154,7 +154,12 @@ void DDBooster::clearAll() {
 }
 
 void DDBooster::setRange(uint8_t start, uint8_t end) {
-    if (start > end || end > _lastIndex || start > _lastIndex) {
+    if (start < 0 || end > _lastIndex) {
+        return;
+    }
+    if(start > end){
+        setRange(start, _lastIndex);
+        setRange(0, end);
         return;
     }
     uint8_t cmd[3];
