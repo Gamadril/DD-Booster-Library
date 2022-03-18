@@ -130,7 +130,8 @@ public:
     void clearAll();
 
     /**
-     * Assign the previously set color value to a range of LEDs.
+     * Assign the previously set color value to a range of LEDs.  
+     * If start is greater than end, the range will automatically wrap around the end of the LED strip.
      * @param start - Index of the first LED in the range to set. Index starts with 0
      * @param end - Index of the last LED in the range to set
      */
